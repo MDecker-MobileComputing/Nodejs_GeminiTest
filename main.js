@@ -2,7 +2,10 @@ import readlineSync from "readline-sync";
 
 
 const API_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_MODELL = "gemini-2.5-flash";
+
+// Alle verfügbaren abfragen: https://generativelanguage.googleapis.com/v1beta/models?key=YOUR_API_KEY
+//const GEMINI_MODELL = "gemini-2.5-flash";
+const GEMINI_MODELL = "gemini-flash-lite-latest";
 
 
 if (!API_KEY) {
