@@ -15,9 +15,9 @@ if (!API_KEY) {
 }
 
 
-const eingabeStr = readlineSync.question("\nBitte Text eingeben, für den ein Titel zu erzeugen ist!\n> ");
+const eingabeStr = readlineSync.question("\nBitte Text eingeben (z.B. Notiz oder Tagebucheintrag), für den ein Titel zu erzeugen ist!\n> ");
 
-const prompt = `Erzeuge einen Titel für folgenden Text: ${eingabeStr}`;
+const prompt = `Erzeuge 5 Titelvorschläge für folgenden Text. Die Titel sollen sachlich und nüchtern formuliert sein, ohne reißerische oder werbende Sprache: ${eingabeStr}`;
 
 async function main() {
   const res = await fetch(
@@ -35,7 +35,19 @@ async function main() {
               { text: prompt }
             ]
           }
-        ]
+        ],
+        generationConfig: {
+          responseMimeType: "application/json",
+          responseSchema: {
+            type: "object",
+            properties: {
+              titles: {
+                type: "array",
+                items: { type: "string" }
+              }
+            }
+          }
+        }
       })
     }
   );
@@ -47,11 +59,16 @@ async function main() {
   }
 
   const data = await res.json();
-  const text =
-    data?.candidates?.[0]?.content?.parts?.map(p => p.text).join("") ??
-    "Keine Antwort erhalten.";
+  const raw = data?.candidates?.[0]?.content?.parts?.map(p => p.text).join("");
 
-  console.log(text);
+  if (!raw) {
+
+    console.log("Keine Antwort erhalten.");
+    return;
+  }
+
+  const { titles } = JSON.parse(raw);
+  titles.forEach((titel, i) => console.log(`${i + 1}. ${titel}`));
 }
 
 main().catch(err => {
