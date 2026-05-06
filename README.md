@@ -30,3 +30,13 @@ set GEMINI_API_KEY=....
 In *AI Studio* kann über den Eintrag "Get API Key" in der Leiste links ein API-Key erzeugt werden.
 
 <br>
+
+----
+
+## Screenshots ##
+
+<br>
+
+![Screenshot: Usage Stats in AI Studio](screenshot_1_UsageStats.png)
+
+<br>
