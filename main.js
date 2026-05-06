@@ -1,21 +1,21 @@
 import readlineSync from "readline-sync";
 
 
-const API_KEY = process.env.GEMINI_API_KEY;
+
 
 // Alle verfügbaren abfragen: https://generativelanguage.googleapis.com/v1beta/models?key=YOUR_API_KEY
 //const GEMINI_MODELL = "gemini-2.5-flash";
 const GEMINI_MODELL = "gemini-flash-lite-latest";
 
+const API_KEY = process.env.GEMINI_API_KEY;
+if ( !API_KEY ) {
 
-if (!API_KEY) {
-
-  console.error("Fehler: Der API-Schlüssel ist nicht gesetzt. Bitte setzen Sie die Umgebungsvariable GEMINI_API_KEY.");
-  process.exit(1);
+  console.error( "Fehler: Der API-Schlüssel ist nicht gesetzt. Bitte setzen Sie die Umgebungsvariable GEMINI_API_KEY." );
+  process.exit( 1 );
 }
 
 
-const eingabeStr = readlineSync.question("\nBitte Text eingeben (z.B. Notiz oder Tagebucheintrag), für den ein Titel zu erzeugen ist!\n> ");
+const eingabeStr = readlineSync.question( "\nBitte Text eingeben (z.B. Notiz oder Tagebucheintrag), für den ein Titel zu erzeugen ist!\n> " );
 
 const prompt = `Erzeuge 5 Titelvorschläge für folgenden Text. Die Titel sollen sachlich und nüchtern formuliert sein, ohne reißerische oder werbende Sprache: ${eingabeStr}`;
 
@@ -25,7 +25,7 @@ async function main() {
     {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type"  : "application/json",
         "x-goog-api-key": API_KEY
       },
       body: JSON.stringify({
@@ -42,7 +42,7 @@ async function main() {
             type: "object",
             properties: {
               titles: {
-                type: "array",
+                type : "array",
                 items: { type: "string" }
               }
             }
@@ -52,26 +52,26 @@ async function main() {
     }
   );
 
-  if (!res.ok) {
+  if ( !res.ok ) {
 
     const errText = await res.text();
-    throw new Error(`${res.status} ${res.statusText}: ${errText}`);
+    throw new Error( `${res.status} ${res.statusText}: ${errText}` );
   }
 
   const data = await res.json();
-  const raw = data?.candidates?.[0]?.content?.parts?.map(p => p.text).join("");
+  const raw = data?.candidates?.[0]?.content?.parts?.map(p => p.text).join( "" );
 
-  if (!raw) {
+  if ( !raw ) {
 
-    console.log("Keine Antwort erhalten.");
+    console.log( "Keine Antwort erhalten." );
     return;
   }
 
-  const { titles } = JSON.parse(raw);
-  titles.forEach((titel, i) => console.log(`${i + 1}. ${titel}`));
+  const { titles } = JSON.parse( raw );
+  titles.forEach( (titel, i) => console.log(`${i + 1}. ${titel}`) );
 }
 
 main().catch(err => {
-  console.error("Fehler:", err.message);
-  process.exit(1);
+  console.error( "Fehler:", err.message );
+  process.exit( 1 );
 });
