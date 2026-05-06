@@ -10,6 +10,10 @@
 
 <br>
 
+Es gibt auch eine eigene Nodejs-Library für Gemini: https://www.npmjs.com/package/@google/genai
+
+<br>
+
 ----
 
 ## API-Key ##
