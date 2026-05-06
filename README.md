@@ -20,6 +20,10 @@ Es gibt auch eine eigene Nodejs-Library für Gemini: https://www.npmjs.com/packa
 
 <br>
 
+In *AI Studio* kann über den Eintrag "Get API Key" in der Leiste links ein API-Key erzeugt werden.
+
+<br>
+
 Muss gesetzt sein in Umgebungsvariable `GEMINI_API_KEY`.
 
 Beispiel:
@@ -27,7 +31,10 @@ Beispiel:
 set GEMINI_API_KEY=....
 ```
 
-In *AI Studio* kann über den Eintrag "Get API Key" in der Leiste links ein API-Key erzeugt werden.
+<br>
+
+Das Repo enthält auch ein Programm [proxy.js](src/proxy.js), das einen Request um den API-Key
+anreichert, damit dieser nicht im Frontend-Code (z.B. Ionic/Angular-App) enthalten sein muss.
 
 <br>
 
