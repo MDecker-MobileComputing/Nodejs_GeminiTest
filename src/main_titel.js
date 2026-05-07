@@ -1,8 +1,6 @@
 import readlineSync from "readline-sync";
 
 
-
-
 // Alle verfügbaren abfragen: https://generativelanguage.googleapis.com/v1beta/models?key=YOUR_API_KEY
 //const GEMINI_MODELL = "gemini-2.5-flash";
 const GEMINI_MODELL = "gemini-flash-lite-latest";
