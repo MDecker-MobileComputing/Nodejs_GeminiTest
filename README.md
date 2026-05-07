@@ -38,17 +38,15 @@ siehe Beispielprogramm [main_antwortoptionen.js](src/main_antwortoptionen.js) in
 <br>
 
 In *AI Studio* kann über den Eintrag "Get API Key" in der Leiste links ein API-Key erzeugt werden.
+Es muss dann eine Umgebungsvariable `GEMINI_API_KEY` mit diesem API-Key gesetzt werden.
 
-<br>
-
-Muss gesetzt sein in Umgebungsvariable `GEMINI_API_KEY`.
-
-Beispiel:
+Beispiel für Windows:
 ```
-set GEMINI_API_KEY=....
+@set GEMINI_API_KEY=....
 ```
 
-Idee: Diesen `set`-Befehl in Batch-Datei `setApiKeyEnv.bat` schreiben, Dateiname ist in `.gitignore` eingetragen.
+Diesen `set`-Befehl kann man in eine Batch-Datei `setApiKeyEnv.bat` schreiben, da der Name dieser Batch-Datei in
+[.gitignore](.gitignore) eingetragen ist.
 
 <br>
 
