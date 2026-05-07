@@ -15,9 +15,13 @@ if ( !API_KEY ) {
 }
 
 
-const eingabeStr = readlineSync.question( "\nBitte Text eingeben (z.B. Notiz oder Tagebucheintrag), für den ein Titel zu erzeugen ist!\n> " );
+const eingabeStr = readlineSync.question(
+  "\nBitte Text eingeben (z.B. Notiz oder Tagebucheintrag), für den ein Titel zu erzeugen ist!\n> " );
 
-const prompt = `Erzeuge 5 Titelvorschläge für folgenden Text. Die Titel sollen sachlich und nüchtern formuliert sein, ohne reißerische oder werbende Sprache: ${eingabeStr}`;
+const prompt =
+  `Erzeuge 5 Titelvorschläge für folgenden Text. \
+   Die Titel sollen sachlich und nüchtern formuliert sein, \
+   ohne reißerische oder werbende Sprache: ${eingabeStr}`;
 
 async function main() {
   const res = await fetch(

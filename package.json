@@ -1,12 +1,14 @@
 {
   "type": "module",
   "dependencies": {
+    "@google/genai": "^1.52.0",
     "express": "^5.2.1",
     "logging": "^4.2.0",
     "readline-sync": "^1.4.10"
   },
   "scripts": {
-    "start": "node src/main.js",
+    "start": "node src/main_titel.js",
+    "mc"   : "node src/main_antwortoptionen",
     "liste": "node src/list-models.js",
     "proxy": "node src/proxy.js"
   }

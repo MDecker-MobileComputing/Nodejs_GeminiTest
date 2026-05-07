@@ -2,6 +2,14 @@
 
 <br>
 
+Programm [main_titel.js](src/main_titel.js) erzeugt mehrere Titelvorschläge für den eingegebenen Text.
+
+<br>
+
+Mit `npm run liste` werden die Namen aller zur Verfügung stehenden Modelle auf ausgegeben.
+
+<br>
+
 **Referenzen:**
 
 * https://aistudio.google.com/
@@ -10,7 +18,16 @@
 
 <br>
 
-Es gibt auch eine eigene Nodejs-Library für Gemini: https://www.npmjs.com/package/@google/genai
+----
+
+## Gemini-Library von Google ##
+
+<br>
+
+Es gibt auch eine offizielle Nodejs-Library für Gemini: https://www.npmjs.com/package/@google/genai
+
+siehe Beispielprogramm [main_antwortoptionen.js](src/main_antwortoptionen.js) in diesem Repo
+(Ausführen mit: `npm run mc`)
 
 <br>
 
