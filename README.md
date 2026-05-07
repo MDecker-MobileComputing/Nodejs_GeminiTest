@@ -6,7 +6,7 @@
 | --- | --- | --- |
 | Titelvorschläge für eingegebenen Text (REST) | [main_titel.js](src/main_titel.js) | `npm start` |
 | Antwortoptionen für Multiple-Choice-Frage ([Library](https://www.npmjs.com/package/@google/genai))| [main_antwortoptionen.js](src/main_antwortoptionen.js) | `npm run mc` |
-| Liste der Gemini-Modelle (REST) | [list-models.js](src/list-models.js) | `npm run liste` |
+| Liste der Gemini-Modelle (REST) | [liste.js](src/list-models.js) | `npm run liste` |
 | Proxy für REST-Calls | [proxy.js](src/proxy.js) | `npm run proxy` |
 
 <br>
