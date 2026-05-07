@@ -2,8 +2,8 @@ import readlineSync from "readline-sync";
 
 
 // Alle verfügbaren abfragen: https://generativelanguage.googleapis.com/v1beta/models?key=YOUR_API_KEY
-//const GEMINI_MODELL = "gemini-2.5-flash";
-const GEMINI_MODELL = "gemini-flash-lite-latest";
+const GEMINI_MODELL = "gemini-2.5-flash";
+//const GEMINI_MODELL = "gemini-flash-lite-latest";
 
 const API_KEY = process.env.GEMINI_API_KEY;
 if ( !API_KEY ) {
@@ -69,19 +69,34 @@ async function main() {
     return;
   }
 
+  // eigentliche Antwort ausgeben
   const { titles } = JSON.parse( raw );
   titles.forEach( (titel, i) => console.log(`${i + 1}. ${titel}`) );
 
+  // Token-Verbrauch ausgeben
   const usage = data?.usageMetadata;
   if ( usage ) {
-    console.log( "Token-Verbrauch:");
-    console.log( "  Prompt:", usage.promptTokenCount      ?? 0 );
-    console.log( "  Antwort:", usage.candidatesTokenCount ?? 0 );
-    console.log( "  Gesamt:", usage.totalTokenCount       ?? 0 );
+
+    const promptTokens = usage.promptTokenCount      ?? 0;
+    const answerTokens = usage.candidatesTokenCount  ?? 0;
+    const apiTotal     = usage.totalTokenCount       ?? 0;
+    const summedTokens = promptTokens + answerTokens ;
+    
+    console.log( "\nToken-Verbrauch:" );
+    console.log( "  Prompt      : ", promptTokens );
+    console.log( "  Antwort     : ", answerTokens );
+    console.log( "  Gesamt (P+A): ", summedTokens );
+    console.log( "  Gesamt (API): ", apiTotal     );
+
+    if ( apiTotal !== undefined && apiTotal !== summedTokens ) {
+
+      console.log( "  Hinweis: Gesamt (API) kann weitere Token enthalten (z.B. interne/systemseitige Token)." );
+    }
   }
 }
 
 main().catch(err => {
+
   console.error( "Fehler:", err.message );
   process.exit( 1 );
 });
