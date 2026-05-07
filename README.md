@@ -1,12 +1,13 @@
-# Demo-Projekt für Gemini-Anfrage mit Nodejs über REST-API #
+# Demo-Projekt für Gemini-Anfrage mit Nodejs #
 
 <br>
 
-Programm [main_titel.js](src/main_titel.js) erzeugt mehrere Titelvorschläge für den eingegebenen Text.
-
-<br>
-
-Mit `npm run liste` werden die Namen aller zur Verfügung stehenden Modelle auf ausgegeben.
+| Beschreibung | Quelltext | NPM-Befehl |
+| --- | --- | --- |
+| Titelvorschläge für eingegebenen Text (REST) | [main_titel.js](src/main_titel.js) | `npm start` |
+| Antwortoptionen für Multiple-Choice-Frage ([Library](https://www.npmjs.com/package/@google/genai))| [main_antwortoptionen.js](src/main_antwortoptionen.js) | `npm run mc` |
+| Liste der Gemini-Modelle (REST) | [list-models.js](src/list-models.js) | `npm run liste` |
+| Proxy für REST-Calls | [proxy.js](src/proxy.js) | `npm run proxy` |
 
 <br>
 
@@ -18,18 +19,6 @@ Mit `npm run liste` werden die Namen aller zur Verfügung stehenden Modelle auf 
 
 <br>
 
-----
-
-## Gemini-Library von Google ##
-
-<br>
-
-Es gibt auch eine offizielle Nodejs-Library für Gemini: https://www.npmjs.com/package/@google/genai
-
-siehe Beispielprogramm [main_antwortoptionen.js](src/main_antwortoptionen.js) in diesem Repo
-(Ausführen mit: `npm run mc`)
-
-<br>
 
 ----
 
@@ -50,8 +39,9 @@ Diesen `set`-Befehl kann man in eine Batch-Datei `setApiKeyEnv.bat` schreiben, d
 
 <br>
 
-Das Repo enthält auch ein Programm [proxy.js](src/proxy.js), das einen Request um den API-Key
-anreichert, damit dieser nicht im Frontend-Code (z.B. Ionic/Angular-App) enthalten sein muss.
+Das Repo enthält auch ein Programm [proxy.js](src/proxy.js), das einen HTTP-Request den Header mit dem API-Key hinzufügt.
+Dadurch wird vermieden, den API-Key im Frontend-Code (z.B. Ionic/Angular) abzulegen, wo er von Angreifern relativ einfach
+ausgelesen werden kann.
 
 <br>
 
