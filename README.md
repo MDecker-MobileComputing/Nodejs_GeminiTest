@@ -31,7 +31,7 @@ Beispiel:
 set GEMINI_API_KEY=....
 ```
 
-sIdee: Diesen `set`-Befehl in Batch-Datei `setApiKeyEnv.bat` schreiben, Dateiname ist in `.gitignore` eingetragen.
+Idee: Diesen `set`-Befehl in Batch-Datei `setApiKeyEnv.bat` schreiben, Dateiname ist in `.gitignore` eingetragen.
 
 <br>
 
