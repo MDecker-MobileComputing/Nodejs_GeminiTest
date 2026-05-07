@@ -31,6 +31,8 @@ Beispiel:
 set GEMINI_API_KEY=....
 ```
 
+sIdee: Diesen `set`-Befehl in Batch-Datei `setApiKeyEnv.bat` schreiben, Dateiname ist in `.gitignore` eingetragen.
+
 <br>
 
 Das Repo enthält auch ein Programm [proxy.js](src/proxy.js), das einen Request um den API-Key
