@@ -61,7 +61,7 @@ async function main() {
   }
 
   const data = await res.json();
-  const raw = data?.candidates?.[0]?.content?.parts?.map(p => p.text).join( "" );
+  const raw  = data?.candidates?.[0]?.content?.parts?.map(p => p.text).join( "" );
 
   if ( !raw ) {
 
@@ -71,6 +71,14 @@ async function main() {
 
   const { titles } = JSON.parse( raw );
   titles.forEach( (titel, i) => console.log(`${i + 1}. ${titel}`) );
+
+  const usage = data?.usageMetadata;
+  if ( usage ) {
+    console.log( "Token-Verbrauch:");
+    console.log( "  Prompt:", usage.promptTokenCount      ?? 0 );
+    console.log( "  Antwort:", usage.candidatesTokenCount ?? 0 );
+    console.log( "  Gesamt:", usage.totalTokenCount       ?? 0 );
+  }
 }
 
 main().catch(err => {
