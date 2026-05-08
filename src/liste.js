@@ -5,37 +5,30 @@ if ( !apiKey ) {
   process.exit( 1 );
 }
 
+
 async function listModels() {
 
   const modelsArray = [];
-  let pageToken = null;
 
-  do {
+  const url = new URL("https://generativelanguage.googleapis.com/v1beta/models");
+  url.searchParams.set( "key"     , apiKey );
+  //url.searchParams.set( "pageSize", "10" );
+  console.log( `URL: ${url.toString()}` );
 
-    const url = new URL("https://generativelanguage.googleapis.com/v1beta/models");
-    url.searchParams.set( "key", apiKey );
-    if ( pageToken ) {
+  const res = await fetch( url.toString() );
 
-      url.searchParams.set( "pageToken", pageToken );
-    }
+  if (!res.ok) {
 
-    const res = await fetch( url.toString() );
+    const errText = await res.text();
+    throw new Error( `${res.status} ${res.statusText}: ${errText}` );
+  }
 
-    if (!res.ok) {
+  const data = await res.json();
 
-      const errText = await res.text();
-      throw new Error( `${res.status} ${res.statusText}: ${errText}` );
-    }
+  for ( const model of data.models ?? [] ) {
 
-    const data = await res.json();
-
-    for ( const model of data.models ?? [] ) {
-
-      modelsArray.push( model.name /* + " - " + model.description */ );
-    }
-
-    pageToken = data.nextPageToken ?? null;
-  } while ( pageToken );
+    modelsArray.push( model.name /* + " - " + model.description */ );
+  }
 
   modelsArray.sort();
 
@@ -46,6 +39,9 @@ async function listModels() {
 
   console.log( `\n${modelsArray.length} Modelle gefunden` );
 }
+
+
+
 
 listModels().catch( err => {
 
