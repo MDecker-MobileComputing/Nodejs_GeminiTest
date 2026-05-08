@@ -1,7 +1,6 @@
 import readlineSync from "readline-sync";
 
 
-// Alle verfügbaren abfragen: https://generativelanguage.googleapis.com/v1beta/models?key=YOUR_API_KEY
 const GEMINI_MODELL = "gemini-2.5-flash";
 //const GEMINI_MODELL = "gemini-flash-lite-latest";
 
@@ -73,22 +72,23 @@ async function main() {
   const { titles } = JSON.parse( raw );
   titles.forEach( (titel, i) => console.log(`${i + 1}. ${titel}`) );
 
+
   // Token-Verbrauch ausgeben
   const usage = data?.usageMetadata;
   if ( usage ) {
 
-    const promptTokens = usage.promptTokenCount      ?? 0;
-    const answerTokens = usage.candidatesTokenCount  ?? 0;
-    const apiTotal     = usage.totalTokenCount       ?? 0;
-    const summedTokens = promptTokens + answerTokens ;
-    
-    console.log( "\nToken-Verbrauch:" );
-    console.log( "  Prompt      : ", promptTokens );
-    console.log( "  Antwort     : ", answerTokens );
-    console.log( "  Gesamt (P+A): ", summedTokens );
-    console.log( "  Gesamt (API): ", apiTotal     );
+    const tokensPrompt   = usage.promptTokenCount      ?? 0;
+    const tokensAntwort  = usage.candidatesTokenCount  ?? 0;
+    const tokensApiTotal = usage.totalTokenCount       ?? 0;
+    const tokensAddiert  = tokensPrompt + tokensAntwort ;
 
-    if ( apiTotal !== undefined && apiTotal !== summedTokens ) {
+    console.log( "\nToken-Verbrauch:" );
+    console.log( "  Prompt      : ", tokensPrompt );
+    console.log( "  Antwort     : ", tokensAntwort );
+    console.log( "  Gesamt (P+A): ", tokensAddiert );
+    console.log( "  Gesamt (API): ", tokensApiTotal     );
+
+    if ( tokensApiTotal !== undefined && tokensApiTotal !== tokensAddiert ) {
 
       console.log( "  Hinweis: Gesamt (API) kann weitere Token enthalten (z.B. interne/systemseitige Token)." );
     }
