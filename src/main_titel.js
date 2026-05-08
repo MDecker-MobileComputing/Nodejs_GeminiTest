@@ -20,6 +20,8 @@ const prompt =
    Die Titel sollen sachlich und nüchtern formuliert sein, \
    ohne reißerische oder werbende Sprache: ${eingabeStr}`;
 
+console.log( "\nGeneriere Titelvorschläge..." );
+
 async function main() {
   const res = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODELL}:generateContent`,
@@ -81,14 +83,15 @@ async function main() {
     const tokensAntwort  = usage.candidatesTokenCount  ?? 0;
     const tokensApiTotal = usage.totalTokenCount       ?? 0;
     const tokensAddiert  = tokensPrompt + tokensAntwort ;
+    const tokensDiff     = tokensApiTotal - tokensAddiert;
 
     console.log( "\nToken-Verbrauch:" );
-    console.log( "  Prompt      : ", tokensPrompt );
-    console.log( "  Antwort     : ", tokensAntwort );
-    console.log( "  Gesamt (P+A): ", tokensAddiert );
-    console.log( "  Gesamt (API): ", tokensApiTotal     );
-
-    if ( tokensApiTotal !== undefined && tokensApiTotal !== tokensAddiert ) {
+    console.log( "  Prompt      : ", tokensPrompt   );
+    console.log( "  Antwort     : ", tokensAntwort  );
+    console.log( "  Gesamt (P+A): ", tokensAddiert  );
+    console.log( "  Gesamt (API): ", tokensApiTotal );
+    console.log( "  Unterschied : ", tokensDiff     );
+    if ( tokensDiff != 0 ) {
 
       console.log( "  Hinweis: Gesamt (API) kann weitere Token enthalten (z.B. interne/systemseitige Token)." );
     }
