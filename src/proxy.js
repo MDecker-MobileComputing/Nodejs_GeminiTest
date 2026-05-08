@@ -29,7 +29,8 @@ let zaehlerRequest = 0;
 expressObjekt.post( "/generate", async ( req, res ) => {
 
   zaehlerRequest++;
-  logger.info( `Anfrage Nr ${zaehlerRequest} erhalten.` );
+  const clientIp = req.ip || req.socket.remoteAddress; // IP-Adresse für mögliches Rate Limiting auslesen
+  logger.info( `Anfrage Nr ${zaehlerRequest} von ${clientIp} erhalten.` );
 
   const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODELL}:generateContent`;
 
