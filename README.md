@@ -21,7 +21,7 @@
 
 ----
 
-## API-Key ##
+## Umgebungsvariablen ##
 
 <br>
 
@@ -30,11 +30,20 @@ Es muss dann eine Umgebungsvariable `GEMINI_API_KEY` mit diesem API-Key gesetzt 
 
 Beispiel für Windows:
 ```
-@set GEMINI_API_KEY=....
+set GEMINI_API_KEY=....
 ```
 
 Diesen `set`-Befehl kann man in eine Batch-Datei `setApiKeyEnv.bat` schreiben, da der Name dieser Batch-Datei in
-[.gitignore](.gitignore) eingetragen ist.
+[.gitignore](.gitignore) eingetragen ist:
+```
+@set GEMINI_API_KEY=....
+@set GEMINI_MODEL=gemini-2.5-flash-lite
+```
+
+<br>
+
+Wenn die Umgebungsvariable `GEMINI_MODEL` nicht gesetzt ist, dann wird ein (älteres) `flash-lite` Modell verwendet.
+Die Umgebungsvariable `GEMINI_API_KEY` muss aber immer gesetzt sein.
 
 <br>
 

@@ -7,18 +7,19 @@ import createLogger from "logging";
  * direkt im Frontend zu verwenden. Außerdem kann damit das verwendete Modell zentral gesteuert werden.
  */
 
-const GEMINI_MODELL = process.env.GEMINI_MODELL ?? "gemini-flash-lite-latest";
-const API_KEY       = process.env.GEMINI_API_KEY;
 
+const logger = createLogger( "gemini-proxy" );
+
+const API_KEY = process.env.GEMINI_API_KEY;
 if ( !API_KEY ) {
 
   console.error( "Fehler: Umgebungsvariable GEMINI_API_KEY ist nicht gesetzt." );
   process.exit( 1 );
 }
 
-
-const logger = createLogger( "gemini-proxy" );
+const GEMINI_MODELL = process.env.GEMINI_MODEL || "gemini-2.5-flash-lite";
 logger.info( "Gewähltes Modell:", GEMINI_MODELL );
+
 
 const expressObjekt = express();
 expressObjekt.use( express.json() );
