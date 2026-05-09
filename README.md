@@ -64,10 +64,12 @@ https://aistudio.google.com/usage?timeRange=last-7-days
 
 https://aistudio.google.com/rate-limit
 ![Screenshot: Rate Limis in AI Studio](screenshot_2_RateLimit.png)
-Die mit dem grünen Rechteck markierten Modelle haben für alle Metriken hinter dem Schrägstrich
-einen Wert größer 0, sind also im gebuchten Tarif (z.B. kostenloser Tarif) enthalten.
-Entsprechend sind Modelle mit "0 / 0" nicht im gebuchten Tarif enthalten.
-Für den vorliegenden Anwendungsfall sind nur Modelle mit Kategorie "Textausgabemodell" relevant.
+Schalter "Alle Modelle" aktivieren und nach Spalten "Kategorie" sortieren;
+für den vorliegend Fall sind nur die Modelle der Kategorie "Textausgabe" relevant.
+Verwendet werden können Modelle, die für alle drei Metriken RPM, TPM und RDP 
+**nicht** den Wert "0 / 0" haben.
+Um den technischen Namen der Modelle herauszufinden, kann die Ausgabe des
+von `npm run liste` ausgewertet werden.  
 
 <br>
 
