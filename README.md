@@ -64,7 +64,7 @@ https://aistudio.google.com/usage?timeRange=last-7-days
 
 https://aistudio.google.com/rate-limit
 ![Screenshot: Rate Limis in AI Studio](screenshot_2_RateLimit.png)
-Schalter "Alle Modelle" aktivieren und nach Spalten "Kategorie" sortieren;
+Schalter "Alle Modelle" aktivieren und nach Spalte "Kategorie" sortieren;
 für den vorliegend Fall sind nur die Modelle der Kategorie "Textausgabe" relevant.
 Verwendet werden können Modelle, die für alle drei Metriken RPM, TPM und RDP 
 **nicht** den Wert "0 / 0" haben.
