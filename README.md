@@ -36,7 +36,7 @@ Diesen `set`-Befehl kann man in eine Batch-Datei `setApiKeyEnv.bat` schreiben, d
 [.gitignore](.gitignore) eingetragen ist:
 ```
 @set GEMINI_API_KEY=....
-@set GEMINI_MODEL=gemini-2.5-flash-lite
+@set GEMINI_MODEL=gemini-3.1-flash-lite
 ```
 <br>
 
@@ -76,6 +76,6 @@ von `npm run liste` ausgewertet werden.
 **Metriken:**
 * RPM: Requests per Minute
 * TPM: Input Tokens per Minute
-* RDP: Requests per Day 
+* RDP: Requests per Day -- wichtigster Wert?
 
 <br>
