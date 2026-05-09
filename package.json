@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node src/main_titel.js",
     "mc"   : "node src/main_antwortoptionen",
-    "liste": "node src/liste.js",
-    "proxy": "node src/proxy.js"
+    "liste": "node src/main_liste.js",
+    "proxy": "node src/main_proxy.js"
   }
 }
