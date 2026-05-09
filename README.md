@@ -14,7 +14,6 @@
 **Referenzen:**
 
 * https://aistudio.google.com/
-* https://aistudio.google.com/usage?timeRange=last-28-days
 * https://ai.google.dev/gemini-api/docs/pricing?hl=de
 
 <br>
@@ -55,10 +54,24 @@ ausgelesen werden kann.
 
 ----
 
-## Screenshots ##
+## Usage überwachen ##
 
 <br>
 
+https://aistudio.google.com/usage?timeRange=last-7-days
 ![Screenshot: Usage Stats in AI Studio](screenshot_1_UsageStats.png)
+
+<br>
+
+https://aistudio.google.com/rate-limit
+![Screenshot: Rate Limis in AI Studio](screenshot_2_RateLimit.png)
+Die mit dem grünen Rechteck markierten Modelle haben für alle Metriken hinter dem Schrägstrich
+einen Wert größer 0, sind also im gebuchten Tarif (z.B. kostenloser Tarif) enthalten.
+Entsprechend sind Modelle mit "0 / 0" nicht im gebuchten Tarif enthalten.
+
+**Metriken:**
+* RPM: Requests per Minute
+* TPM: Input Tokens per Minute
+* RDP: Requests per Day 
 
 <br>
