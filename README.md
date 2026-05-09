@@ -38,7 +38,6 @@ Diesen `set`-Befehl kann man in eine Batch-Datei `setApiKeyEnv.bat` schreiben, d
 @set GEMINI_API_KEY=....
 @set GEMINI_MODEL=gemini-2.5-flash-lite
 ```
-
 <br>
 
 Wenn die Umgebungsvariable `GEMINI_MODEL` nicht gesetzt ist, dann wird ein (älteres) `flash-lite` Modell verwendet.
@@ -68,6 +67,9 @@ https://aistudio.google.com/rate-limit
 Die mit dem grünen Rechteck markierten Modelle haben für alle Metriken hinter dem Schrägstrich
 einen Wert größer 0, sind also im gebuchten Tarif (z.B. kostenloser Tarif) enthalten.
 Entsprechend sind Modelle mit "0 / 0" nicht im gebuchten Tarif enthalten.
+Für den vorliegenden Anwendungsfall sind nur Modelle mit Kategorie "Textausgabemodell" relevant.
+
+<br>
 
 **Metriken:**
 * RPM: Requests per Minute
