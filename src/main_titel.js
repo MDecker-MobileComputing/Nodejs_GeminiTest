@@ -54,6 +54,7 @@ async function main() {
       })
     }
   );
+  // weitere Parts neben dem Prompt könnten z.B. Binärdaten sein, z.B. Bilder oder PDFs
 
   if ( !res.ok ) {
 
