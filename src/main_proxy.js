@@ -48,7 +48,7 @@ expressObjekt.post( "/generate", async ( req, res ) => {
     const data = await upstream.json();
     res.status( upstream.status ).json( data );
 
-  logger.info( `Anfrage Nr ${zaehlerRequest} erfolgreich verarbeitet.` );
+    logger.info( `Anfrage Nr ${zaehlerRequest} erfolgreich verarbeitet.` );
 
   } catch ( fehler ) {
 
@@ -56,7 +56,7 @@ expressObjekt.post( "/generate", async ( req, res ) => {
     res.status( 502 )
        .json( { error: "Upstream nicht erreichbar", detail: fehler.message } );
   }
-} );
+});
 
 
 const PORT = 8080;
