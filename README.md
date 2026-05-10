@@ -58,12 +58,15 @@ ausgelesen werden kann.
 <br>
 
 https://aistudio.google.com/usage?timeRange=last-7-days
+
 ![Screenshot: Usage Stats in AI Studio](screenshot_1_UsageStats.png)
 
 <br>
 
 https://aistudio.google.com/rate-limit
+
 ![Screenshot: Rate Limis in AI Studio](screenshot_2_RateLimit.png)
+
 Schalter "Alle Modelle" aktivieren und nach Spalte "Kategorie" sortieren;
 für den vorliegend Fall sind nur die Modelle der Kategorie "Textausgabe" relevant.
 Verwendet werden können Modelle, die für alle drei Metriken RPM, TPM und RDP 
