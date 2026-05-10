@@ -62,5 +62,5 @@ expressObjekt.post( "/generate", async ( req, res ) => {
 const PORT = 8080;
 expressObjekt.listen( PORT, () => {
 
-  logger.info( `Gemini-Proxy läuft auf http://localhost:${PORT}` );
+  logger.info( `Gemini-Proxy läuft auf Port ${PORT}.` );
 } );
