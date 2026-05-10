@@ -5,7 +5,10 @@ import {GoogleGenAI} from "@google/genai";
 const API_KEY = process.env.GEMINI_API_KEY;
 if ( !API_KEY ) {
 
-  console.error( "Fehler: Der API-Schlüssel ist nicht gesetzt. Bitte setzen Sie die Umgebungsvariable GEMINI_API_KEY." );
+  console.error( 
+    "Fehler: Der API-Schlüssel ist nicht gesetzt." + 
+    "Bitte setzen Sie die Umgebungsvariable GEMINI_API_KEY." );
+
   process.exit( 1 );
 }
 
@@ -36,7 +39,7 @@ async function main() {
       contents: prompt,
     });
 
-    console.log( antwort.text );
+  console.log( antwort.text );
 }
 
 main();
