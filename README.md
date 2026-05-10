@@ -76,6 +76,6 @@ von `npm run liste` ausgewertet werden.
 **Metriken:**
 * RPM: Requests per Minute
 * TPM: Input Tokens per Minute
-* RDP: Requests per Day -- wichtigster Wert?
+* RDP: Requests per Day – wichtigster Wert?
 
 <br>

@@ -11,7 +11,7 @@ if ( !API_KEY ) {
 
 
 const GEMINI_MODELL = process.env.GEMINI_MODEL || "gemini-2.5-flash-lite";
-console.log( `Verwende Modell: ${GEMINI_MODELL}` );
+//console.log( `Verwende Modell: ${GEMINI_MODELL}` );
 
 
 const eingabeStr =
