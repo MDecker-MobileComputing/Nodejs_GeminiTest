@@ -15,11 +15,11 @@ const GEMINI_MODELL = process.env.GEMINI_MODEL || "gemini-2.5-flash-lite";
 
 
 const eingabeStr =
-  readlineSync.question( "\nBitte Multi-Choice-Frage eingeben:\n> " );
+  readlineSync.question( "\nBitte Single-Choice-Frage eingeben:\n> " );
 
 const prompt =
-  `Erzeuge 4 Antwortoptionen für folgende Frage. \
-   Die Antwortoptionen sollen kurz und stichpunktartig sein, \
+  `Erzeuge 4 Antwortoptionen für die folgende Frage; \
+   die Antwortoptionen sollen kurz und stichpunktartig sein, \
    ohne Einleitungstexte oder Erklärungen; \
    die richtige Antwort soll mit einem nachgestellten (richtig) markiert werden \
    und zuerst genannt werden: \
@@ -30,12 +30,13 @@ const ai = new GoogleGenAI({apiKey: API_KEY});
 console.log( "\nGeneriere Antwortoptionen...\n" );
 
 async function main() {
-const antwort = await ai.models.generateContent({
-    model   : GEMINI_MODELL,
-    contents: prompt,
-  });
 
-  console.log( antwort.text );
+  const antwort = await ai.models.generateContent({
+      model   : GEMINI_MODELL,
+      contents: prompt,
+    });
+
+    console.log( antwort.text );
 }
 
 main();
