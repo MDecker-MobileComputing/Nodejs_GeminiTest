@@ -6,11 +6,14 @@ if ( !apiKey ) {
 }
 
 
+/**
+ * Listet die verfügbaren Modelle der Generative Language API auf.
+ */
 async function listModels() {
 
   const modelsArray = [];
 
-  const url = new URL("https://generativelanguage.googleapis.com/v1beta/models");
+  const url = new URL( "https://generativelanguage.googleapis.com/v1beta/models" );
   url.searchParams.set( "key"     , apiKey );
   //url.searchParams.set( "pageSize", "10" );
   console.log( `URL: ${url.toString()}` );
@@ -39,7 +42,6 @@ async function listModels() {
 
   console.log( `\n${modelsArray.length} Modelle gefunden` );
 }
-
 
 
 
