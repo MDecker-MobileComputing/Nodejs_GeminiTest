@@ -2,6 +2,10 @@
 
 <br>
 
+Die folgende Tabelle enthält eine Beschreibung der in diesem Git-Repo enthaltenen JavaScript-Dateien:
+
+<br>
+
 | Beschreibung | Quelltext | NPM-Befehl |
 | --- | --- | --- |
 | Liste der Gemini-Modelle (REST)                                                                 | [main_liste.js](src/main_liste.js) | `npm run liste`   |
