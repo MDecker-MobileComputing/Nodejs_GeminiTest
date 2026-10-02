@@ -4,8 +4,8 @@
 
 | Beschreibung | Quelltext | NPM-Befehl |
 | --- | --- | --- |
-| Liste der Gemini-Modelle (REST) | [main_liste.js](src/main_liste.js) | `npm run liste` |
-| Titelvorschläge für eingegebenen Text (REST) | [main_titel.js](src/main_titel.js) | `npm start` |
+| Liste der Gemini-Modelle (REST)                                                                 | [main_liste.js](src/main_liste.js) | `npm run liste`   |
+| Titelvorschläge für eingegebenen Text (REST)                                                    | [main_titel.js](src/main_titel.js) | `npm start`       |
 | Antwortoptionen für Single-Choice-Frage ([Library](https://www.npmjs.com/package/@google/genai))| [main_antwortoptionen.js](src/main_antwortoptionen.js) | `npm run mc` |
 | Proxy für REST-Calls | [main_proxy.js](src/main_proxy.js) | `npm run proxy` |
 
@@ -69,10 +69,10 @@ https://aistudio.google.com/rate-limit
 
 Schalter "Alle Modelle" aktivieren und nach Spalte "Kategorie" sortieren;
 für den vorliegend Fall sind nur die Modelle der Kategorie "Textausgabe" relevant.
-Verwendet werden können Modelle, die für alle drei Metriken RPM, TPM und RDP 
+Verwendet werden können Modelle, die für alle drei Metriken RPM, TPM und RDP
 **nicht** den Wert "0 / 0" haben.
 Um den technischen Namen der Modelle herauszufinden, kann die Ausgabe des
-von `npm run liste` ausgewertet werden.  
+von `npm run liste` ausgewertet werden.
 
 <br>
 
